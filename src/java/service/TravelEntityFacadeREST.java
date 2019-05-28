@@ -21,7 +21,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-
 @Stateless
 @Path("travelentity")
 public class TravelEntityFacadeREST extends AbstractFacade<TravelEntity> {
@@ -32,31 +31,23 @@ public class TravelEntityFacadeREST extends AbstractFacade<TravelEntity> {
     public TravelEntityFacadeREST() {
         super(TravelEntity.class);
     }
-    
-    
-                   @GET
+
+    @GET
     @Path("{origin}/{destination}/{userId}")  //  fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
-    @Produces({ MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public String findRange(@PathParam("origin") String origin, @PathParam("destination") String destination, @PathParam("userId") String userId) {
         TravelEntity newTE = new TravelEntity(origin, destination, userId);
         create(newTE);
         return newTE.toJson();
     }
-    
+
     @GET
-    @Override   
-  @Path("getall")   // http://localhost:8080/os2024back/webresources/travelentity/getall
-      @Produces({ MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+    @Override
+    @Path("getall")   // http://localhost:8080/os2024back/webresources/travelentity/getall
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public List<TravelEntity> findAll() {
         return super.findAll();
     }
-    
-    
-    
-    
-    
-
-   
 
     @PUT
     @Path("{id}")
@@ -79,7 +70,6 @@ public class TravelEntityFacadeREST extends AbstractFacade<TravelEntity> {
 //    }
 //
 //    
-
 //    @GET
 //    @Path("{from}/{to}")
 //    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -93,19 +83,9 @@ public class TravelEntityFacadeREST extends AbstractFacade<TravelEntity> {
 //    public String countREST() {
 //        return String.valueOf(super.count());
 //    }
-    
-  
-    
-    
-    
-    
-    
-    
-    
-
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+
 }
