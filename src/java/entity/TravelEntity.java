@@ -36,20 +36,14 @@ public class TravelEntity implements Serializable {
                 
     }
 
-    
-      public String toJson(){
+    public String toJson(){
         return "{"+
                 "\n  \"destination\":\""+destination+"\""+
                 "\n  \"origin\":\""+origin+"\""+
                  "\n}";
     }
-    
-    
-    
-    
-    
-    
-    public Long getId() {
+
+      public Long getId() {
         return id;
     }
 
@@ -72,7 +66,5 @@ public class TravelEntity implements Serializable {
     public void setDestination(String destination) {
         this.destination = destination;
     }
-
-  
     
 }
