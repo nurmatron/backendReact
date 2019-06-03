@@ -56,7 +56,7 @@ public class SavedTravelEntityFacadeREST extends AbstractFacade<SavedTravelEntit
         super.edit(entity);
     }
 
-    @DELETE
+    @GET // MUST be GET for react to be able to access it...
     @Path("delete/{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
