@@ -23,4 +23,5 @@
     <jdbc-resource enabled="true" jndi-name="java:app/osPU" object-type="user" pool-name="derby_net_os2024_rootPool"/>
     <jdbc-resource enabled="true" jndi-name="java:app/newSource" object-type="user" pool-name="derby_net_travels_rootPool"/>
     <jdbc-resource enabled="true" jndi-name="java:app/travels" object-type="user" pool-name="derby_net_travels_rootPool"/>
+    <jdbc-resource enabled="true" jndi-name="java:app/travels" object-type="user" pool-name="derby_net_travels_rootPool"/>
 </resources>

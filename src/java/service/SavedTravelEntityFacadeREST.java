@@ -1,7 +1,9 @@
 package service;
 
 import entity.SavedTravelEntity;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -55,7 +57,7 @@ public class SavedTravelEntityFacadeREST extends AbstractFacade<SavedTravelEntit
     }
 
     @DELETE
-    @Path("{id}")
+    @Path("delete/{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
@@ -73,6 +75,15 @@ public class SavedTravelEntityFacadeREST extends AbstractFacade<SavedTravelEntit
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<SavedTravelEntity> findAll() {
         return super.findAll();
+    }
+    
+    @GET
+    @Path("getall/{userId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<SavedTravelEntity> getSavedList(@PathParam("userId") String idToCheck){
+        List savedList;
+        savedList = findAll().stream().filter(x -> x.getUserId().equals(idToCheck)).collect(Collectors.toList());
+        return savedList;
     }
 
     @GET
